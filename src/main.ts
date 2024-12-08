@@ -2,19 +2,20 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { Logger, ValidationPipe } from '@nestjs/common';
+import fastifyCors from '@fastify/cors';
 
 async function bootstrap() {
   const logger = new Logger('Bootstrap');
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter({ 
-      // trustProxy: true,
+      trustProxy: true,
       logger: true
     }),
   );
-  
-  // Enable CORS
-  app.enableCors({
+
+  // Register fastify-cors plugin
+  app.register(fastifyCors, {
     origin: [
       'https://react-v19-starter-6gyp.vercel.app',
       'http://localhost:8080',
@@ -39,4 +40,5 @@ async function bootstrap() {
   await app.listen(port, host);
   logger.log(`Application is running on: ${await app.getUrl()}`);
 }
+
 bootstrap();
