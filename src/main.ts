@@ -18,7 +18,7 @@ async function bootstrap() {
   app.register(fastifyCors, {
     origin: [
       'https://react-v19-starter-6gyp.vercel.app',
-      'http://localhost:8080',
+      // 'http://localhost:8080',
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     credentials: true,
