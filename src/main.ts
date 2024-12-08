@@ -8,17 +8,20 @@ async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter({ 
-      trustProxy: true,
+      // trustProxy: true,
       logger: true
     }),
   );
   
   // Enable CORS
   app.enableCors({
-    origin: ['http://localhost:8080', 'https://react-v19-starter-6gyp.vercel.app'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: [
+      'https://react-v19-starter-6gyp.vercel.app',
+      'http://localhost:8080',
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true
   });
   
   // Enable validation
