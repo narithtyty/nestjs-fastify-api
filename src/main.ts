@@ -14,7 +14,10 @@ async function bootstrap() {
   );
   
   // Enable CORS
-  app.enableCors();
+  app.enableCors({
+    origin: true,
+    methods: 'GET, POST, PUT, DELETE',
+  });
   
   // Enable validation
   app.useGlobalPipes(new ValidationPipe({
