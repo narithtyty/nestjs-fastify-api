@@ -9,4 +9,4 @@ A NestJS API service using Fastify as the HTTP server
 - TypeORM for database operations (https://typeorm.io/)
 
 ## Live Demo
-[Live Demo](https://nestjs-fastify-api.vercel.app/api/v1/users)
+[Live Demo](https://nestjs-fastify-api-01.vercel.app/api/v1/users)
