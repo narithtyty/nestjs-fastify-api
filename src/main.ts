@@ -14,11 +14,11 @@ async function bootstrap() {
   );
   
   // Enable CORS
-   app.enableCors({
-    origin: '*',
+  app.enableCors({
+    origin: ['http://localhost:8080', 'https://react-v19-starter-6gyp.vercel.app'],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: false
+    credentials: true
   });
   
   // Enable validation
